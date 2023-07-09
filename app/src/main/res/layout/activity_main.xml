@@ -26,10 +26,19 @@
         android:text="Decrypt" />
 
     <TextView
-        android:id="@+id/textViewResult"
+        android:id="@+id/textViewEncrypt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:hint="Text Encrypt"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textViewDescrypt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Text Decrypt"
         android:textSize="18sp" />
 
 </LinearLayout>
