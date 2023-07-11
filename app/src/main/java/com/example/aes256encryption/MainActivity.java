@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewEncrypt;
     private TextView textViewDecrypt;
 
-    private static final String AES_KEY = "YOU_AES_KEY";
-    private static final String AES_IV = "YOU_AES_IV";
+    private static final String AES_KEY = "YOU_AES_KEY"; //32 bytes
+    private static final String AES_IV = "YOU_AES_IV"; //16 bytes
 
     @SuppressLint("MissingInflatedId")
     @Override

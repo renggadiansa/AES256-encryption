@@ -19,7 +19,7 @@ public class PasswordActivity extends AppCompatActivity {
         passcodeView = findViewById(R.id.passcodeView);
 
         passcodeView.setPasscodeLength(5)
-                .setLocalPasscode("12369")
+                .setLocalPasscode("12345")
 
                 .setListener(new PasscodeView.PasscodeViewListener() {
                     @Override
