@@ -3,13 +3,16 @@ package com.example.aes256encryption;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewEncrypt;
     private TextView textViewDecrypt;
 
+    private ImageView imageView;
+
+    private ImageView imageView2;
+
     private static final String AES_KEY = "YOU_AES_KEY"; //32 digits
     private static final String AES_IV = "YOU_AES_IV"; //16 digits
 
@@ -41,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         buttonDecrypt = findViewById(R.id.buttonDecrypt);
         textViewEncrypt = findViewById(R.id.textViewEncrypt);
         textViewDecrypt = findViewById(R.id.textViewDescrypt);
-
+        imageView = findViewById(R.id.imageViewCopy);
+        imageView2 = findViewById(R.id.imageViewCopy2);
         buttonEncrypt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,13 +58,35 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     String encryptedText = encrypt(inputText, AES_KEY, AES_IV);
                     textViewEncrypt.setText(encryptedText);
-                    ClipboardManager cm = (ClipboardManager)getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                    cm.setText(textViewEncrypt.getText().toString());
-                    Toast.makeText(getApplicationContext(), "Copied :)", Toast.LENGTH_SHORT).show();
+                    //ClipboardManager cm = (ClipboardManager)getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    //cm.setText(textViewEncrypt.getText().toString());
+                    //Toast.makeText(getApplicationContext(), "Copied :)", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+        });
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("UseCompatLoadingForDrawables")
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clipData = ClipData.newPlainText("text", textViewEncrypt.getText().toString());
+                clipboardManager.setPrimaryClip(clipData);
+
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.checklist));
+                Toast.makeText(getApplicationContext(), "Text Copied to Clipboard", Toast.LENGTH_SHORT).show();
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.clipboard));
+                    }
+                }, 500);
+            }
+
         });
 
         buttonDecrypt.setOnClickListener(new View.OnClickListener() {
@@ -68,12 +98,33 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     String decryptedText = decrypt(encryptedText, AES_KEY, AES_IV);
                     textViewDecrypt.setText(decryptedText);
-                    ClipboardManager cm = (ClipboardManager)getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                    cm.setText(textViewDecrypt.getText().toString());
-                    Toast.makeText(getApplicationContext(), "Copied :)", Toast.LENGTH_SHORT).show();
+                    //ClipboardManager cm = (ClipboardManager)getApplicationContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                    //cm.setText(textViewDecrypt.getText().toString());
+                    //Toast.makeText(getApplicationContext(), "Copied :)", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("UseCompatLoadingForDrawables")
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clipData = ClipData.newPlainText("text", textViewDecrypt.getText().toString());
+                clipboardManager.setPrimaryClip(clipData);
+
+                imageView2.setImageDrawable(getResources().getDrawable(R.drawable.checklist));
+                Toast.makeText(getApplicationContext(), "Text Copied to Clipboard", Toast.LENGTH_SHORT).show();
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        imageView2.setImageDrawable(getResources().getDrawable(R.drawable.clipboard));
+                    }
+                }, 500);
             }
         });
     }

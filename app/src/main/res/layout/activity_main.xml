@@ -13,32 +13,78 @@
         android:layout_height="wrap_content"
         android:hint="Input Text" />
 
-    <Button
-        android:id="@+id/buttonEncrypt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Encrypt" />
-
-    <Button
-        android:id="@+id/buttonDecrypt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Decrypt" />
-
-    <TextView
-        android:id="@+id/textViewEncrypt"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Text Encrypt"
-        android:textSize="18sp" />
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
 
-    <TextView
-        android:id="@+id/textViewDescrypt"
+        <TextView
+            android:id="@+id/textViewEncrypt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Text Encrypt"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/imageViewCopy"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:src="@drawable/clipboard"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Text Decrypt"
-        android:textSize="18sp" />
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/textViewDescrypt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Text Decrypt"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/imageViewCopy2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:src="@drawable/clipboard"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/buttonEncrypt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Encrypt"
+            android:background="@drawable/custom_btn"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/buttonDecrypt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Decrypt"
+            android:background="@drawable/custom_btn"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
 
 </LinearLayout>
