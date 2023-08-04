@@ -1,7 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <Button
         android:id="@+id/btnSelectFile"
@@ -9,9 +11,16 @@
         android:layout_height="wrap_content"
         android:text="Select File" />
 
-    <TextView
-        android:id="@+id/tvSelectedFile"
+    <Button
+        android:id="@+id/btnEncrypt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Encrypt File" />
+
+    <Button
+        android:id="@+id/btnDecrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Decrypt File" />
 
 </LinearLayout>
