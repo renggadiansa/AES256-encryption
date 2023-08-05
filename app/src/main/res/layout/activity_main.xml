@@ -7,6 +7,17 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Text Encrypt and Decrypt"
+        android:layout_marginBottom="20dp"
+        android:textSize="30dp"
+        android:textColor="#00CED1"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/editTextInput"
         android:layout_width="match_parent"
@@ -86,5 +97,21 @@
             android:layout_marginStart="8dp" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="bottom">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/donate"
+        android:gravity="center" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

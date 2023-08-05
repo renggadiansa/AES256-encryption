@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AES 256 Encryption</string>
+
+    <string name="donate">
+        Support me <a href="https://saweria.co/renggaferdiansa">here</a>
+    </string>
 </resources>
